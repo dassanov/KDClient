@@ -11,14 +11,15 @@
 #import <CoreData/CoreData.h>
 
 @class RootViewController;
-@class DetailTableViewController;
+@class CrownController;
 
-@interface DetailViewController : UITableViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate> {
+@interface DetailViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
 
 }
 
 
 @property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
+@property (nonatomic, retain) IBOutlet UITableView *tableView;
 
 @property (nonatomic, retain) NSManagedObject *detailItem;
 
@@ -28,7 +29,8 @@
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *draftsBarItem;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *trashBarItem;
 
-@property (nonatomic, retain) IBOutlet DetailTableViewController *tableViewController;
+@property (nonatomic, retain) CrownController *crownController;
+@property (nonatomic, assign) NSInteger crownsSectionIndex;
 
 - (IBAction)moveToDrafts:(id)sender;
 - (IBAction)moveToOutbox:(id)sender;

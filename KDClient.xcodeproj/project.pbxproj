@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB0E8CAA135ABE7B00361685 /* CrownController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0E8CA9135ABE7B00361685 /* CrownController.m */; };
 		BB2FBB5813464E45001B33CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB2FBB5713464E45001B33CA /* UIKit.framework */; };
 		BB2FBB5A13464E45001B33CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB2FBB5913464E45001B33CA /* Foundation.framework */; };
 		BB2FBB5C13464E45001B33CA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB2FBB5B13464E45001B33CA /* CoreGraphics.framework */; };
@@ -50,6 +51,10 @@
 		BB6CDE871347546200E6DEC4 /* EditingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6CDE861347546200E6DEC4 /* EditingCell.m */; };
 		BB6CDE8A1347547000E6DEC4 /* SelectOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6CDE891347547000E6DEC4 /* SelectOneCell.m */; };
 		BB6CDE8C1347628600E6DEC4 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = BB6CDE8B1347628600E6DEC4 /* Icon-72.png */; };
+		BB73CB08134BA9BA009869BB /* CrownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB73CB07134BA9B9009869BB /* CrownCell.m */; };
+		BB801A63135C400900F17F34 /* DetailViewController+CellSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = BB801A62135C400900F17F34 /* DetailViewController+CellSupport.m */; };
+		BB801A6A135C654F00F17F34 /* CrownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB801A68135C654F00F17F34 /* CrownViewController.m */; };
+		BB801A6B135C654F00F17F34 /* CrownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB801A69135C654F00F17F34 /* CrownView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB0E8CA8135ABE7B00361685 /* CrownController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrownController.h; sourceTree = "<group>"; };
+		BB0E8CA9135ABE7B00361685 /* CrownController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrownController.m; sourceTree = "<group>"; };
 		BB2FBB5313464E45001B33CA /* KDClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KDClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2FBB5713464E45001B33CA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BB2FBB5913464E45001B33CA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -133,6 +140,13 @@
 		BB6CDE881347547000E6DEC4 /* SelectOneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectOneCell.h; sourceTree = "<group>"; };
 		BB6CDE891347547000E6DEC4 /* SelectOneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectOneCell.m; sourceTree = "<group>"; };
 		BB6CDE8B1347628600E6DEC4 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		BB73CB06134BA9B9009869BB /* CrownCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrownCell.h; sourceTree = "<group>"; };
+		BB73CB07134BA9B9009869BB /* CrownCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrownCell.m; sourceTree = "<group>"; };
+		BB801A61135C400900F17F34 /* DetailViewController+CellSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DetailViewController+CellSupport.h"; sourceTree = "<group>"; };
+		BB801A62135C400900F17F34 /* DetailViewController+CellSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DetailViewController+CellSupport.m"; sourceTree = "<group>"; };
+		BB801A67135C654F00F17F34 /* CrownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrownViewController.h; sourceTree = "<group>"; };
+		BB801A68135C654F00F17F34 /* CrownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrownViewController.m; sourceTree = "<group>"; };
+		BB801A69135C654F00F17F34 /* CrownView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CrownView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +327,12 @@
 				BB2FBB7813464E46001B33CA /* RootViewController.m */,
 				BB2FBBCB13464FFD001B33CA /* SelectOneController.h */,
 				BB2FBBCC13464FFD001B33CA /* SelectOneController.m */,
+				BB0E8CA8135ABE7B00361685 /* CrownController.h */,
+				BB0E8CA9135ABE7B00361685 /* CrownController.m */,
+				BB801A61135C400900F17F34 /* DetailViewController+CellSupport.h */,
+				BB801A62135C400900F17F34 /* DetailViewController+CellSupport.m */,
+				BB801A67135C654F00F17F34 /* CrownViewController.h */,
+				BB801A68135C654F00F17F34 /* CrownViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -320,8 +340,9 @@
 		BB6CDE7E1347400700E6DEC4 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
-				BB2FBB6E13464E45001B33CA /* MainWindow.xib */,
+				BB801A69135C654F00F17F34 /* CrownView.xib */,
 				BB6CDE7F1347404000E6DEC4 /* BoxView.xib */,
+				BB2FBB6E13464E45001B33CA /* MainWindow.xib */,
 			);
 			name = UserInterface;
 			sourceTree = "<group>";
@@ -333,6 +354,8 @@
 				BB6CDE891347547000E6DEC4 /* SelectOneCell.m */,
 				BB6CDE851347546200E6DEC4 /* EditingCell.h */,
 				BB6CDE861347546200E6DEC4 /* EditingCell.m */,
+				BB73CB06134BA9B9009869BB /* CrownCell.h */,
+				BB73CB07134BA9B9009869BB /* CrownCell.m */,
 			);
 			name = "Table Cells";
 			sourceTree = "<group>";
@@ -347,6 +370,7 @@
 				BB2FBB4F13464E45001B33CA /* Sources */,
 				BB2FBB5013464E45001B33CA /* Frameworks */,
 				BB2FBB5113464E45001B33CA /* Resources */,
+				BBE91DCA134AF7A300275DC4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -412,6 +436,7 @@
 				BB6CDE7C13473B5500E6DEC4 /* ui.plist in Resources */,
 				BB6CDE801347404000E6DEC4 /* BoxView.xib in Resources */,
 				BB6CDE8C1347628600E6DEC4 /* Icon-72.png in Resources */,
+				BB801A6B135C654F00F17F34 /* CrownView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +464,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		BBE91DCA134AF7A300275DC4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Developer/iphoneentitlements401/gen_entitlements.py \"kz.bee.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -470,6 +508,10 @@
 				BB2FBBE5134712EF001B33CA /* BoxViewController.m in Sources */,
 				BB6CDE871347546200E6DEC4 /* EditingCell.m in Sources */,
 				BB6CDE8A1347547000E6DEC4 /* SelectOneCell.m in Sources */,
+				BB73CB08134BA9BA009869BB /* CrownCell.m in Sources */,
+				BB0E8CAA135ABE7B00361685 /* CrownController.m in Sources */,
+				BB801A63135C400900F17F34 /* DetailViewController+CellSupport.m in Sources */,
+				BB801A6A135C654F00F17F34 /* CrownViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,7 +565,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -531,7 +573,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
@@ -541,12 +583,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -562,7 +604,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KDClient/KDClient-Prefix.pch";
 				INFOPLIST_FILE = "KDClient/KDClient-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -576,7 +618,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KDClient/KDClient-Prefix.pch";
 				INFOPLIST_FILE = "KDClient/KDClient-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

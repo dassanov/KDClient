@@ -31,6 +31,36 @@
 
 @synthesize boxes;
 
+void dumpViews(UIView* view, NSString *text, NSString *indent)
+{
+    Class cl = [view class];
+    NSString *classDescription = [cl description];
+    while ([cl superclass]) 
+    {
+        cl = [cl superclass];
+        classDescription = [classDescription stringByAppendingFormat:@":%@", [cl description]];
+    }
+    
+    if ([text compare:@""] == NSOrderedSame)
+        NSLog(@"%@ %@", classDescription, NSStringFromCGRect(view.frame));
+    else
+        NSLog(@"%@ %@ %@", text, classDescription, NSStringFromCGRect(view.frame));
+    
+    for (NSUInteger i = 0; i < [view.subviews count]; i++)
+    {
+        UIView *subView = [view.subviews objectAtIndex:i];
+        NSString *newIndent = [[NSString alloc] initWithFormat:@"  %@", indent];
+        NSString *msg = [[NSString alloc] initWithFormat:@"%@%d:", newIndent, i];
+        dumpViews(subView, msg, newIndent);
+        [msg release];
+        [newIndent release];
+    }
+}
+
+- (IBAction)dumpViews:(id)sender {
+    dumpViews([[UIApplication sharedApplication] keyWindow], @"", @"");
+}
+
 - (NSDictionary *) uiInfo {
     if (_uiInfo == nil) {
         NSString *path = [[NSBundle mainBundle] bundlePath];

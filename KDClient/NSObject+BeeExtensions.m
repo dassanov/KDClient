@@ -7,7 +7,6 @@
 //
 
 #import "NSObject+BeeExtensions.h"
-#import "KDClientAppDelegate.h"
 
 @implementation NSObject (BeeExtensions)
 

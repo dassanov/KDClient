@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KDClientAppDelegate.h"
 
-@class KDClientAppDelegate;
+void dumpViews(UIView* view, NSString *text, NSString *indent);
+
 
 @interface NSObject (BeeExtensions)
 @property(nonatomic, readonly) KDClientAppDelegate *app;

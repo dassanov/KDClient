@@ -9,32 +9,66 @@
 #import "EditingCell.h"
 #import "DetailViewController.h"
 #import "RootViewController.h"
+#import "NSObject+BeeExtensions.h"
 
+@interface EditingCell (asdf)
+- (void)valueChanged:(id)sender;
+@end
 
 @implementation EditingCell
 
-@synthesize textField, detailViewController;
+@synthesize textField = _textField;
 
-- (void)useField:(NSString *)aField ofManagedObject:(NSManagedObject *)aManagedObject {
-	if (managedObject != aManagedObject) {
-        [field release];
-        field = [aField copy];
-		[managedObject release];
-        managedObject = [aManagedObject retain];
-        textField.text = [managedObject valueForKey:field];
-	}
+@synthesize detailViewController = _detailViewController;
+
+@synthesize managedObject = _managedObject;
+
+@synthesize field=_field;
+
+- (void)useField:(NSString *)field ofManagedObject:(NSManagedObject *)managedObject {
+    if (_managedObject) {
+        [_managedObject removeObserver:self forKeyPath:self.field];
+        [_textField removeObserver:self forKeyPath:@"text"];
+    }
+    
+    [_managedObject release];
+    [_field release];
+    
+    _field = [field copy];
+    _managedObject = [managedObject retain];
+
+    self.textField.text = [_managedObject valueForKey:field];
+    
+    [_managedObject addObserver:self forKeyPath:field options:0 context:nil];
+    [_textField addObserver:self forKeyPath:@"text" options:0 context:nil];
+    [self setNeedsDisplay];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([self.textField.text isEqualToString:[self.managedObject valueForKey:self.field]]) {
+        NSLog(@"ignore");
+        return;
+    }
+
+    if (object == self.textField) {
+        NSLog(@"textField");
+        [self.managedObject setValue:self.textField.text forKey:self.field];
+    } else if (object == _managedObject) {
+        NSLog(@"managedObject");
+        self.textField.text = [self.managedObject valueForKey:self.field];
+    }
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if ((self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier])) {
-		textField = [[UITextField alloc] initWithFrame: CGRectZero];
-        textField.borderStyle = UITextBorderStyleNone;
-        textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        textField.userInteractionEnabled = NO;
-        textField.textAlignment = UITextAlignmentRight;
-        textField.textColor = self.detailTextLabel.textColor;
-        textField.delegate = self;
-        [self.contentView addSubview:textField];
+        _textField = [[UITextField alloc] initWithFrame: CGRectZero];
+        _textField.borderStyle = UITextBorderStyleNone;
+        _textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        _textField.userInteractionEnabled = NO;
+        _textField.textAlignment = UITextAlignmentRight;
+        _textField.textColor = self.detailTextLabel.textColor;
+
+        [self.contentView addSubview:_textField];
         [self setNeedsLayout];
     }
     return self;
@@ -49,46 +83,33 @@
 	[self.detailTextLabel removeFromSuperview];
 }
 
-#pragma -
-#pragma TextField delegate
-
-- (BOOL)textFieldShouldEndEditing:(UITextField *)aTextField {
-    [managedObject setValue:textField.text forKey:field];
-    NSError *error = nil;
-    BOOL success = [managedObject.managedObjectContext save:&error];
-    if (!success) {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    return success;
-}
-
 - (void)dealloc {
-	[textField release];
-	[field release];
-    [managedObject release];
+    [_managedObject removeObserver:self forKeyPath:_field];
+    [_textField release];
+    [_field release];
+    [_managedObject release];
     [super dealloc];
 }
 
 - (void)startEdit {
-    if ([textField isFirstResponder]) {
+    if ([self.textField isFirstResponder]) {
         NSLog(@"already editing");
         return;
     }
-    textField.userInteractionEnabled = YES;
-    [textField becomeFirstResponder];
+    self.textField.userInteractionEnabled = YES;
+    [self.textField becomeFirstResponder];
 }
 
 - (void)endEdit {
     if (![self isEdit]) {
         return;
     }
-    [textField resignFirstResponder];
-    textField.userInteractionEnabled = NO;
+    [self.textField resignFirstResponder];
+    self.textField.userInteractionEnabled = NO;
 }
 
 - (BOOL)isEdit {
-    return [textField isFirstResponder];
+    return [self.textField isFirstResponder];
 }
 
 @end

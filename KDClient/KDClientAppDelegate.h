@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 #define BOX_DRAFTS 0
 #define BOX_OUTBOX 1
@@ -38,4 +39,5 @@
 
 @property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;
 
+- (IBAction)dumpViews:(id)sender;
 @end

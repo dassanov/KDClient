@@ -7,6 +7,7 @@
 //
 
 #import "KDClientTests.h"
+#import "CrownListDelegate.h"
 
 
 @implementation KDClientTests
@@ -27,7 +28,13 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in KDClientTests");
+    CrownListDelegate *delegate = [[CrownListDelegate alloc] init];
+    [delegate release];
+    delegate = [[CrownListDelegate alloc] init];
+    [delegate release];
+    delegate = [[CrownListDelegate alloc] init];
+    [delegate release];
+//    STFail(@"Unit tests are not implemented yet in KDClientTests");
 }
 
 @end

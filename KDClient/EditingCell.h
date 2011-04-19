@@ -12,14 +12,13 @@
 @class DetailViewController;
 
 @interface EditingCell : UITableViewCell <UITextFieldDelegate> {
-    DetailViewController *detailViewController;
-    UITextField *textField;
-    NSString *field;
-    NSManagedObject *managedObject;
+
 }
 
 @property(nonatomic, readonly) UITextField *textField;
 @property(nonatomic, assign) DetailViewController *detailViewController;
+@property(nonatomic, readonly) NSManagedObject *managedObject;
+@property(nonatomic, readonly) NSString *field;
 
 - (void)useField:(NSString *)aField ofManagedObject:(NSManagedObject *)aManagedObject;
 
