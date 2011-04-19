@@ -48,10 +48,9 @@
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>
 			<object class="IBUIWindow" id="673453472">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<string key="NSFrameSize">{768, 1024}</string>
-				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -103,11 +102,21 @@
 						<int key="NSvFlags">256</int>
 						<string key="NSFrame">{{0, 704}, {320, 44}}</string>
 						<reference key="NSSuperview"/>
+						<reference key="NSWindow"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">4</int>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIBarStyle">1</int>
+						<object class="NSMutableArray" key="IBUIItems">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBUIBarButtonItem" id="956424392">
+								<string key="IBUITitle">DumpViews</string>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+								<int key="IBUIStyle">1</int>
+								<reference key="IBUIToolbar" ref="351311744"/>
+							</object>
+						</object>
 					</object>
 					<object class="NSMutableArray" key="IBUIViewControllers">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -118,6 +127,7 @@
 								<int key="NSvFlags">274</int>
 								<string key="NSFrame">{{0, 44}, {320, 660}}</string>
 								<reference key="NSSuperview"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="351311744"/>
 								<object class="NSColor" key="IBUIBackgroundColor" id="878027457">
 									<int key="NSColorSpace">3</int>
@@ -134,13 +144,10 @@
 							</object>
 							<object class="NSArray" key="IBUIToolbarItems">
 								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="IBUIBarButtonItem" id="956424392">
-									<string key="IBUITitle">DumpViews</string>
-									<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-									<int key="IBUIStyle">1</int>
-								</object>
+								<reference ref="956424392"/>
 							</object>
 							<object class="IBUINavigationItem" key="IBUINavigationItem" id="463972797">
+								<reference key="IBUINavigationBar"/>
 								<string key="IBUITitle">Ящики</string>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 							</object>
@@ -171,6 +178,7 @@
 								<int key="NSvFlags">274</int>
 								<string key="NSFrameSize">{703, 748}</string>
 								<reference key="NSSuperview" ref="131531575"/>
+								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="174210684"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
@@ -202,6 +210,7 @@
 								<int key="NSvFlags">290</int>
 								<string key="NSFrameSize">{703, 44}</string>
 								<reference key="NSSuperview" ref="131531575"/>
+								<reference key="NSWindow"/>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIBarStyle">2</int>
 								<object class="NSMutableArray" key="IBUIItems">
@@ -250,6 +259,7 @@
 						</object>
 						<string key="NSFrameSize">{703, 748}</string>
 						<reference key="NSSuperview"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="143774451"/>
 						<reference key="IBUIBackgroundColor" ref="878027457"/>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -670,7 +680,202 @@
 			<nil key="sourceID"/>
 			<int key="maxID">209</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+				<object class="IBPartialClassDescription">
+					<string key="className">DetailViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>moveToDrafts:</string>
+							<string>moveToOutbox:</string>
+							<string>moveToTrash:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>moveToDrafts:</string>
+							<string>moveToOutbox:</string>
+							<string>moveToTrash:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">moveToDrafts:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">moveToOutbox:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">moveToTrash:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>draftsBarItem</string>
+							<string>outboxBarItem</string>
+							<string>rootViewController</string>
+							<string>tableView</string>
+							<string>toolbar</string>
+							<string>trashBarItem</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UIBarButtonItem</string>
+							<string>UIBarButtonItem</string>
+							<string>RootViewController</string>
+							<string>UITableView</string>
+							<string>UIToolbar</string>
+							<string>UIBarButtonItem</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>draftsBarItem</string>
+							<string>outboxBarItem</string>
+							<string>rootViewController</string>
+							<string>tableView</string>
+							<string>toolbar</string>
+							<string>trashBarItem</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">draftsBarItem</string>
+								<string key="candidateClassName">UIBarButtonItem</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">outboxBarItem</string>
+								<string key="candidateClassName">UIBarButtonItem</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">rootViewController</string>
+								<string key="candidateClassName">RootViewController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">tableView</string>
+								<string key="candidateClassName">UITableView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">toolbar</string>
+								<string key="candidateClassName">UIToolbar</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">trashBarItem</string>
+								<string key="candidateClassName">UIBarButtonItem</string>
+							</object>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/DetailViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">KDClientAppDelegate</string>
+					<string key="superclassName">NSObject</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">dumpViews:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">dumpViews:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">dumpViews:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>detailViewController</string>
+							<string>rootViewController</string>
+							<string>splitViewController</string>
+							<string>window</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>DetailViewController</string>
+							<string>RootViewController</string>
+							<string>UISplitViewController</string>
+							<string>UIWindow</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>detailViewController</string>
+							<string>rootViewController</string>
+							<string>splitViewController</string>
+							<string>window</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">detailViewController</string>
+								<string key="candidateClassName">DetailViewController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">rootViewController</string>
+								<string key="candidateClassName">RootViewController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">splitViewController</string>
+								<string key="candidateClassName">UISplitViewController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">window</string>
+								<string key="candidateClassName">UIWindow</string>
+							</object>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/KDClientAppDelegate.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">RootViewController</string>
+					<string key="superclassName">UITableViewController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">detailViewController</string>
+						<string key="NS.object.0">DetailViewController</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">detailViewController</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">detailViewController</string>
+							<string key="candidateClassName">DetailViewController</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/RootViewController.h</string>
+					</object>
+				</object>
+			</object>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
