@@ -7,48 +7,64 @@
 //
 
 #import "CrownCell.h"
+#import "DetailViewController.h"
+#import "CrownController.h"
+#import "CrownViewController.h"
 
+@interface CrownCell (Private) <CrownViewDelegate>
+@end
 
 @implementation CrownCell
 
-@synthesize index=_index;
-@synthesize report=_report;
+@synthesize crown=_crown;
+@synthesize detailViewController;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if ((self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier])) {
-        _index = NSIntegerMax;
+        self.detailTextLabel.text = @"Добавить коронку";
     }
     return self;
 }
 
--(void)useCrownAtIndex:(NSInteger)index ofReport:(NSManagedObject *)report {
-    [_report release];
-    _report = [report retain];
-    
-    NSArray *crowns = [_report valueForKey:@"crowns"];
-
-    if (index < [crowns count]) {
-        self.textLabel.text = @"Name";
-        [self useField:@"name" ofManagedObject:[crowns objectAtIndex:index]];
-    } else {
-        _index = NSIntegerMax;
-        self.textField.text = @"Add...";
-    }
+- (void)controller:(CrownViewController *)controller didReturnWithSave:(BOOL)save {
+    [self.detailViewController dismissModalViewControllerAnimated:YES];
+    [self setSelected:NO animated:YES];
+    [self setNeedsDisplay];
 }
 
--(void)startEdit {
-    if (_index == NSIntegerMax) {
-        NSManagedObjectContext *context = [_report managedObjectContext];
-        NSManagedObject *newCrown = [NSEntityDescription insertNewObjectForEntityForName:@"Crown" inManagedObjectContext:context];
-        [newCrown setValue:_report forKey:@"report"];
+-(void)setCrown:(NSManagedObject *)crown {
+    if (_crown != crown) {
+        [_crown release];
+        _crown = [crown retain];
+        self.textLabel.text = @"Коронка";
+        self.detailTextLabel.text = [_crown valueForKey:@"crownName"];
+    }
+    
+}
+
+-(BOOL)isActive {
+    return NO;
+}
+
+-(void)setActive:(BOOL)active {
+    if (self.crown) {
+        CrownViewController *crownViewController = [[[CrownViewController alloc] initWithCrown:self.crown] autorelease];
+        crownViewController.delegate = self;
+        UINavigationController*  navigationController = [[[UINavigationController alloc]
+                                                     initWithRootViewController:crownViewController] autorelease];
+        navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
+        navigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        
+        [self.detailViewController presentModalViewController:navigationController animated:YES];
+        [self setSelected:YES];
     } else {
-        [super startEdit];
+        [self.detailViewController.crownController insertCrown];
     }
 }
 
 - (void)dealloc
 {
-    [_report release];
+    [_crown release];
     [super dealloc];
 }
 

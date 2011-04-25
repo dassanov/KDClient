@@ -11,8 +11,7 @@
 #import "RootViewController.h"
 #import "NSObject+BeeExtensions.h"
 
-@interface EditingCell (asdf)
-- (void)valueChanged:(id)sender;
+@interface EditingCell (asdf) <UITextFieldDelegate>
 @end
 
 @implementation EditingCell
@@ -67,6 +66,7 @@
         _textField.userInteractionEnabled = NO;
         _textField.textAlignment = UITextAlignmentRight;
         _textField.textColor = self.detailTextLabel.textColor;
+        _textField.delegate = self;
 
         [self.contentView addSubview:_textField];
         [self setNeedsLayout];
@@ -85,31 +85,47 @@
 
 - (void)dealloc {
     [_managedObject removeObserver:self forKeyPath:_field];
+    [_textField removeObserver:self forKeyPath:@"text"];
     [_textField release];
     [_field release];
     [_managedObject release];
     [super dealloc];
 }
 
-- (void)startEdit {
-    if ([self.textField isFirstResponder]) {
-        NSLog(@"already editing");
-        return;
+- (UIView*)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    if ([self.textField isFirstResponder] && [self pointInside:point withEvent:event]) {
+        return self.textField;
+    } else {
+        return [super hitTest:point withEvent:event];
     }
-    self.textField.userInteractionEnabled = YES;
-    [self.textField becomeFirstResponder];
 }
 
-- (void)endEdit {
-    if (![self isEdit]) {
-        return;
-    }
-    [self.textField resignFirstResponder];
-    self.textField.userInteractionEnabled = NO;
-}
-
-- (BOOL)isEdit {
+-(BOOL) isActive
+{
     return [self.textField isFirstResponder];
+}
+
+-(void) setActive:(BOOL)active
+{
+    if (active && ![self isActive]) {
+        self.textField.userInteractionEnabled = YES;
+        NSLog(@"enable");
+        if (![self.textField becomeFirstResponder]) {
+            self.textField.userInteractionEnabled = NO;
+        }
+    } 
+    
+    if (!active && [self isActive]) {
+        if ([self.textField endEditing:NO]) {
+        }
+    }
+    
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    NSLog(@"disable");
+    self.textField.userInteractionEnabled = NO;
 }
 
 @end

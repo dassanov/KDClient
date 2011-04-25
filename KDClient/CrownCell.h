@@ -6,17 +6,15 @@
 //  Copyright 2011 BEE Software. All rights reserved.
 //
 
-#import "EditingCell.h"
-#import <UIKit/UIKit.h>
+#import "UITableViewCell+BeeExtensions.h"
 
+@class DetailViewController;
 
-@interface CrownCell : EditingCell {
+@interface CrownCell : UITableViewCell {
     
 }
 
-@property(nonatomic, readonly) NSManagedObject *report;
-@property(nonatomic, readonly) NSInteger index;
-
--(void)useCrownAtIndex:(NSInteger)index ofReport:(NSManagedObject *)report;
+@property(nonatomic, retain) NSManagedObject *crown;
+@property(nonatomic, assign) DetailViewController *detailViewController;
 
 @end

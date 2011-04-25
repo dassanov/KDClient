@@ -71,31 +71,47 @@
 			<array>
 				<dict>
 					<key>field</key>
-					<string>name</string>
+					<string>crownName</string>
 					<key>label</key>
-					<string>Имя</string>
+					<string>Наименование алмазной коронки</string>
 					<key>type</key>
 					<string>text</string>
 				</dict>
 				<dict>
 					<key>field</key>
-					<string>name</string>
+					<string>crownSerial</string>
 					<key>label</key>
-					<string>Имя</string>
+					<string>Завод №</string>
 					<key>type</key>
 					<string>text</string>
 				</dict>
 				<dict>
 					<key>field</key>
-					<string>name</string>
+					<string>crownWeight</string>
 					<key>label</key>
-					<string>Имя</string>
+					<string>Масса, кар.</string>
 					<key>type</key>
 					<string>text</string>
 				</dict>
+				<dict>
+					<key>field</key>
+					<string>crownMeters</string>
+					<key>label</key>
+					<string>Пробурено, м.</string>
+					<key>type</key>
+					<string>text</string>
+				</dict>				
+				<dict>
+					<key>field</key>
+					<string>crownTotal</string>
+					<key>label</key>
+					<string>Нараст., м.</string>
+					<key>type</key>
+					<string>text</string>
+				</dict>				
 			</array>
 			<key>label</key>
-			<string>Алмазные коронки</string>
+			<string>Алмазные коронка</string>
 			<key>type</key>
 			<string>static</string>
 		</dict>
@@ -105,24 +121,32 @@
 		<dict>
 			<key>name</key>
 			<string>draft</string>
+            <key>icon</key>
+            <string>draft.png</string>
 			<key>label</key>
 			<string>Черновые</string>
 		</dict>
 		<dict>
 			<key>name</key>
 			<string>outbox</string>
+            <key>icon</key>
+            <string>outbox.png</string>
 			<key>label</key>
 			<string>Готовые</string>
 		</dict>
 		<dict>
 			<key>name</key>
 			<string>sent</string>
+            <key>icon</key>
+            <string>sent.png</string>
 			<key>label</key>
 			<string>История</string>
 		</dict>
 		<dict>
 			<key>name</key>
 			<string>trash</string>
+            <key>icon</key>
+            <string>trash.png</string>
 			<key>label</key>
 			<string>Корзина</string>
 		</dict>

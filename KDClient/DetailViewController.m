@@ -68,18 +68,18 @@
         if ([box isEqualToString:@"draft"]) {
             self.outboxBarItem.enabled = YES;
             self.trashBarItem.enabled = YES;
-            [self.tableView setEditing:YES animated:YES];
+//            [self.tableView setEditing:YES animated:YES];
         } else if ([box isEqualToString:@"outbox"]) {
             self.draftsBarItem.enabled = YES;
             self.trashBarItem.enabled = YES;
-            [self.tableView setEditing:NO animated:YES];
+//            [self.tableView setEditing:NO animated:YES];
         } else if ([box isEqualToString:@"sent"]) {
             // TODO check status button
-            [self.tableView setEditing:NO animated:YES];
+//            [self.tableView setEditing:NO animated:YES];
         } else if ([box isEqualToString:@"trash"]) {
             self.draftsBarItem.enabled = YES;
             self.outboxBarItem.enabled = YES;
-            [self.tableView setEditing:NO animated:YES];
+//            [self.tableView setEditing:NO animated:YES];
         }
     }
     
@@ -228,6 +228,7 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
     NSDictionary *sectionInfo = [[self.app.uiInfo objectForKey:@"Report"] objectAtIndex:indexPath.section];
     NSString *sectionType = [sectionInfo objectForKey:@"type"];
     if ([sectionType isEqual:@"list"]) {
@@ -239,20 +240,28 @@
 
 #pragma mark - Table view delegate
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewCellEditingStyleInsert;
+    return UITableViewCellEditingStyleDelete;
+    
+    if (indexPath.row < [self.crownController.fetchedObjects count]) {
+        return UITableViewCellEditingStyleDelete;
+    } else {
+        return UITableViewCellEditingStyleNone;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
-    UITableViewCell *nextCell = [tableView cellForRowAtIndexPath:indexPath];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    if (![nextCell isEdit]) {
-        UITableViewCell *prevCell = [tableView cellForRowAtIndexPath:self.prevCellIndex];
-        self.prevCellIndex = indexPath;
-        [prevCell endEdit];
-        [nextCell startEdit];
+    if (![cell isActive] && [self.tableView endEditing:NO]) {
+        [cell setActive:YES];
+    } else {
     }
+}
+
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.crownController deleteCrownAtIndex:indexPath.row];
 }
 
 #pragma mark - Memory management

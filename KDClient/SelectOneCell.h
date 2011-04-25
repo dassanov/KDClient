@@ -10,7 +10,7 @@
 
 @interface SelectOneCell : UITableViewCell {
     UIViewController *detailViewController;
-    BOOL hasFocus;
+    BOOL _active;
 }
 
 @property(nonatomic, assign) UIViewController *detailViewController;

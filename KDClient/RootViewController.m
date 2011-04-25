@@ -102,7 +102,8 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     cell.textLabel.text = [[self.app.boxes objectAtIndex:indexPath.row] valueForKey:@"label"];
-    //cell.imageView.image = [UIImage i
+    UIImage *icon = [UIImage imageNamed:[[self.app.boxes objectAtIndex:indexPath.row] valueForKey:@"icon"]];
+    cell.imageView.image = icon ;
 }
 		
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -112,6 +113,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 
     // Configure the cell.

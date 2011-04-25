@@ -11,18 +11,15 @@
 
 @implementation UITableViewCell (BeeExtensions) 
 
-- (void)startEdit {
-    NSLog(@"UITableViewCell.startEdit");
+- (BOOL)isActive 
+{
+    NSLog(@"UITableViewCell isActive");
+    return NO;
 }
 
-- (BOOL)isEdit {
-    NSLog(@"UITableViewCell.isEdit");
-    return self.selected;
-}
-
-- (void)endEdit {
-    NSLog(@"UITableViewCell.endEdit");
+- (void)setActive:(BOOL)active
+{
+    NSLog(@"UITableViewCell setActive: %@", active ? @"YES" : @"NO");
 }
 
 @end
-

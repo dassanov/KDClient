@@ -15,6 +15,7 @@
 
 @interface BoxViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)restoreSelection;
 @end
 
 @implementation BoxViewController
@@ -36,6 +37,18 @@
     return self;
 }
 
+- (void)restoreSelection
+{
+    NSLog(@"restore selection");
+    NSManagedObject *currentDetailItem = self.rootViewController.detailViewController.detailItem;
+    if (currentDetailItem) {
+        NSUInteger index = [self.fetchedResultsController.fetchedObjects indexOfObject:currentDetailItem];
+        if (index != NSNotFound) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+            [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+        }
+    }
+}
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -45,8 +58,7 @@
 
     self.title = [[self.app.boxes objectAtIndex:status] objectForKey:@"label"];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    //self.clearsSelectionOnViewWillAppear = NO;
     
 	NSError *error = nil;
 	if (![[self fetchedResultsController] performFetch:&error]) {
@@ -68,13 +80,10 @@
 }
 
 
-/*
 - (void)viewWillAppear:(BOOL)animated {
-	NSLog(@"viewWillAppear");
     [super viewWillAppear:animated];
-	self.title = [boxNames() objectAtIndex:self.status];
+    [self restoreSelection];
 }
-*/
 
 /*
 - (void)viewDidAppear:(BOOL)animated {
@@ -314,7 +323,7 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
             break;
             
         case NSFetchedResultsChangeMove:
@@ -325,6 +334,7 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];
+    [self restoreSelection];
 }
 
 @end

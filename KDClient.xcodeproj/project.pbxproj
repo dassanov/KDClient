@@ -55,6 +55,11 @@
 		BB801A63135C400900F17F34 /* DetailViewController+CellSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = BB801A62135C400900F17F34 /* DetailViewController+CellSupport.m */; };
 		BB801A6A135C654F00F17F34 /* CrownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB801A68135C654F00F17F34 /* CrownViewController.m */; };
 		BB801A6B135C654F00F17F34 /* CrownView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB801A69135C654F00F17F34 /* CrownView.xib */; };
+		BBDF07FD135EC65200E92DC0 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BBDF07FC135EC65100E92DC0 /* Settings.bundle */; };
+		BBDF08021360690C00E92DC0 /* sent.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDF07FF1360690C00E92DC0 /* sent.png */; };
+		BBDF08031360690C00E92DC0 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDF08001360690C00E92DC0 /* trash.png */; };
+		BBDF08041360690C00E92DC0 /* outbox.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDF08011360690C00E92DC0 /* outbox.png */; };
+		BBDF08061360691600E92DC0 /* draft.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDF08051360691600E92DC0 /* draft.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +152,11 @@
 		BB801A67135C654F00F17F34 /* CrownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrownViewController.h; sourceTree = "<group>"; };
 		BB801A68135C654F00F17F34 /* CrownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrownViewController.m; sourceTree = "<group>"; };
 		BB801A69135C654F00F17F34 /* CrownView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CrownView.xib; sourceTree = "<group>"; };
+		BBDF07FC135EC65100E92DC0 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		BBDF07FF1360690C00E92DC0 /* sent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sent.png; sourceTree = "<group>"; };
+		BBDF08001360690C00E92DC0 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
+		BBDF08011360690C00E92DC0 /* outbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outbox.png; sourceTree = "<group>"; };
+		BBDF08051360691600E92DC0 /* draft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = draft.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +226,7 @@
 		BB2FBB5F13464E45001B33CA /* KDClient */ = {
 			isa = PBXGroup;
 			children = (
+				BBDF07FE136068E900E92DC0 /* Icons */,
 				BB6CDE84134753EA00E6DEC4 /* Table Cells */,
 				BB6CDE7E1347400700E6DEC4 /* UserInterface */,
 				BB2FBBC713464F68001B33CA /* ViewControllers */,
@@ -227,6 +238,7 @@
 				BB2FBB6B13464E45001B33CA /* KDClient.xcdatamodeld */,
 				BB6CDE7B13473B5500E6DEC4 /* ui.plist */,
 				BB2FBB6013464E45001B33CA /* Supporting Files */,
+				BBDF07FC135EC65100E92DC0 /* Settings.bundle */,
 			);
 			path = KDClient;
 			sourceTree = "<group>";
@@ -360,6 +372,17 @@
 			name = "Table Cells";
 			sourceTree = "<group>";
 		};
+		BBDF07FE136068E900E92DC0 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				BBDF08051360691600E92DC0 /* draft.png */,
+				BBDF08011360690C00E92DC0 /* outbox.png */,
+				BBDF07FF1360690C00E92DC0 /* sent.png */,
+				BBDF08001360690C00E92DC0 /* trash.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -437,6 +460,11 @@
 				BB6CDE801347404000E6DEC4 /* BoxView.xib in Resources */,
 				BB6CDE8C1347628600E6DEC4 /* Icon-72.png in Resources */,
 				BB801A6B135C654F00F17F34 /* CrownView.xib in Resources */,
+				BBDF07FD135EC65200E92DC0 /* Settings.bundle in Resources */,
+				BBDF08021360690C00E92DC0 /* sent.png in Resources */,
+				BBDF08031360690C00E92DC0 /* trash.png in Resources */,
+				BBDF08041360690C00E92DC0 /* outbox.png in Resources */,
+				BBDF08061360691600E92DC0 /* draft.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

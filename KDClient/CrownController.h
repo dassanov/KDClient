@@ -16,5 +16,7 @@
 
 @property(nonatomic, assign) DetailViewController *detailViewController;
 -(id)initWithController:(DetailViewController *) detailViewController;
+-(void)insertCrown;
+-(void)deleteCrownAtIndex:(NSUInteger)index;
 
 @end

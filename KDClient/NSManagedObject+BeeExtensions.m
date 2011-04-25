@@ -17,6 +17,14 @@
     
     for (id property in [[self entity] properties])
     {
+        NSDictionary *userInfo = [property userInfo];
+        
+        NSString *skip = [userInfo valueForKey:@"skip"];
+        
+        if ([@"YES" isEqualToString:skip]) {
+            continue;
+        }
+        
         if ([property isKindOfClass:[NSAttributeDescription class]])
         {
             NSAttributeDescription *attributeDescription = (NSAttributeDescription *)property;

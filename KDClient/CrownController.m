@@ -9,10 +9,24 @@
 #import "CrownController.h"
 #import "DetailViewController.h"
 #import "RootViewController.h"
+#import "NSObject+BeeExtensions.h"
+
 
 @implementation CrownController
 
 @synthesize detailViewController=_detailViewController;
+
+-(void)insertCrown {
+    NSLog(@"insertCrown");
+    NSManagedObject *crown = [NSEntityDescription insertNewObjectForEntityForName:@"Crown" inManagedObjectContext:self.managedObjectContext];
+    [crown setValue:[NSDate date] forKey:@"createDate"];
+    [crown setValue:self.detailViewController.detailItem forKey:@"report"];
+}
+
+-(void)deleteCrownAtIndex:(NSUInteger)index {
+    NSLog(@"deleteCrown");
+    [self.managedObjectContext deleteObject:[self.fetchedObjects objectAtIndex:index]];
+}
 
 -(id)initWithController:(DetailViewController *) aDetailViewController {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -21,7 +35,7 @@
     
     [fetchRequest setFetchBatchSize:5];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"createDate" ascending:YES];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];
     [sortDescriptor release];

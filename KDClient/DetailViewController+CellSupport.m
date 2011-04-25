@@ -74,17 +74,21 @@
 {
     NSString *CellIdentifier = @"CrownCellAdd";
     NSArray *crowns = self.crownController.fetchedObjects;
+    NSManagedObject *crown = nil;
     if (indexPath.row < [crowns count]) {
         CellIdentifier = [NSString stringWithFormat:@"CrownCell-%i", indexPath.row];
+        crown = [crowns objectAtIndex:indexPath.row];
     }
     
     CrownCell *cell = (CrownCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[CrownCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.detailViewController = self;
     }
-    [cell useCrownAtIndex:indexPath.row ofReport:self.detailItem];
+    
+    cell.detailViewController = self;
+    
+    cell.crown = crown;
     
     return cell;
 }

@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UITableViewCell (BeeExtensions) 
-- (void)startEdit;
-- (BOOL)isEdit;
-- (void)endEdit;
+
+@property(nonatomic, assign, getter = isActive, setter = setActive:) BOOL active;
 
 @end

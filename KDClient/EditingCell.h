@@ -11,7 +11,7 @@
 
 @class DetailViewController;
 
-@interface EditingCell : UITableViewCell <UITextFieldDelegate> {
+@interface EditingCell : UITableViewCell {
 
 }
 
