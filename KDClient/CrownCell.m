@@ -12,6 +12,7 @@
 #import "CrownViewController.h"
 
 @interface CrownCell (Private) <CrownViewDelegate>
+-(void)configureView;
 @end
 
 @implementation CrownCell
@@ -29,15 +30,33 @@
 - (void)controller:(CrownViewController *)controller didReturnWithSave:(BOOL)save {
     [self.detailViewController dismissModalViewControllerAnimated:YES];
     [self setSelected:NO animated:YES];
+    [self configureView];
     [self setNeedsDisplay];
+}
+
+-(void)configureView 
+{
+    NSString *notSpecified = @"Не указано";
+    NSString *crownName = [self.crown valueForKey:@"crownName"];
+    self.textLabel.text = crownName ? crownName : notSpecified;
+    
+    NSString *crownSerial = [self.crown valueForKey:@"crownSerial"];
+    crownSerial = crownSerial ? crownSerial : notSpecified;
+    NSString *crownWeight = [self.crown valueForKey:@"crownWeight"];
+    crownWeight = crownWeight ? crownWeight : notSpecified;
+    NSString *crownMeters = [self.crown valueForKey:@"crownMeters"];
+    crownMeters = crownMeters ? crownMeters : notSpecified;
+    NSString *crownTotal = [self.crown valueForKey:@"crownTotal"];
+    crownTotal = crownTotal ? crownTotal : notSpecified;
+    NSString *detailText = [NSString stringWithFormat:@"%@ | %@ | %@ | %@", crownSerial, crownWeight, crownMeters, crownTotal];
+    self.detailTextLabel.text = detailText;
 }
 
 -(void)setCrown:(NSManagedObject *)crown {
     if (_crown != crown) {
         [_crown release];
         _crown = [crown retain];
-        self.textLabel.text = @"Коронка";
-        self.detailTextLabel.text = [_crown valueForKey:@"crownName"];
+        [self configureView];
     }
     
 }
